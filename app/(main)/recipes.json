@@ -10,11 +10,37 @@
       "cook_time": "10-15 minutes",
       "tags": ["chinese", "breakfast", "lunch", "dinner"]
     },
+    "ingredients": [
+      {
+        "name": "Tomatoes",
+        "quantity": 2,
+        "unit": "whole",
+        "notes": null
+      },
+      {
+        "name": "Eggs",
+        "quantity": 2,
+        "unit": "whole",
+        "notes": null
+      },
+      {
+        "name": "Salt",
+        "quantity": null,
+        "unit": null,
+        "notes": "to taste"
+      },
+      {
+        "name": "Oil",
+        "quantity": null,
+        "unit": null,
+        "notes": "enough to cover the bottom of the pan"
+      }
+    ],
     "steps": [
       {
         "id": "stp_1",
         "name": "Prep tomatoes",
-        "description": "Cut the tomatoes into wedges. 6 per tomato is a good number."
+        "description": "Cut the tomatoes into wedges. 6 per tomato is typically good."
       },
       {
         "id": "stp_2",
@@ -34,7 +60,7 @@
       {
         "id": "stp_5",
         "name": "Add eggs",
-        "description": "Add eggs to the pan and stir fry until eggs are cooked. Turn off heat shortly before eggs are cooked to prevent overcooking"
+        "description": "Pour in the beaten eggs and gently stir. This step should be relatively fast. Turn off the heat early to prevent overcooking. The pan’s residual heat will finish cooking the eggs."
       }
     ]
   },
