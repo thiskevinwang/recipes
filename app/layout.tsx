@@ -19,7 +19,7 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en" className={`stone ${mono.variable} font-sans`}>
-      <body className="bg-stone-50 dark:bg-stone-900">
+      <body className="bg-stone-300 dark:bg-stone-900">
         <ThemeContextProvider>{children}</ThemeContextProvider>
       </body>
     </html>

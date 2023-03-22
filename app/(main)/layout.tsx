@@ -39,7 +39,7 @@ export default function Home({ children }: { children: React.ReactNode }) {
 
   return (
     <>
-      <header className="flex h-16 content-center border-b border-b-stone-200 px-6 py-3 dark:border-b-stone-700">
+      <header className="sticky top-0 flex h-16 content-center border-b border-b-stone-200 px-6 py-3 dark:border-b-stone-700">
         <Stack
           direction={'row'}
           align={'center'}
@@ -57,7 +57,7 @@ export default function Home({ children }: { children: React.ReactNode }) {
           />
         </Stack>
       </header>
-      <div className="min-h-[calc(100vh-4rem-8rem)] bg-stone-50 dark:bg-stone-900">
+      <div className="min-h-[calc(100vh-4rem-8rem)] bg-stone-300 dark:bg-stone-900">
         {children}
       </div>
       <footer className="h-32 border-t border-t-stone-200 px-6 py-3 dark:border-t-stone-700">

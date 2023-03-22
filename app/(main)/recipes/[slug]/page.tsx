@@ -1,5 +1,7 @@
-import recipes from '../../recipes.json';
+import recipes from '@/data/recipes';
+
 import Breadcrumbs from './breadcrumbs';
+import Metadata from './metadata';
 
 function fetchRecipe(slug: string) {
   return recipes.find((recipe) => recipe.slug === slug);
@@ -9,7 +11,7 @@ export default function RecipePage({ params }: { params: { slug: string } }) {
   const recipe = fetchRecipe(params.slug);
   return (
     <>
-      <div className="">
+      <div className="w-full">
         <Breadcrumbs />
         <section className="px-6">
           <h1 className="text-2xl font-bold">{recipe.name}</h1>
@@ -18,13 +20,24 @@ export default function RecipePage({ params }: { params: { slug: string } }) {
           </h2>
         </section>
 
-        <section className="mt-6 border-t border-t-stone-200 px-6 py-6 dark:border-t-stone-700">
+        <section className="mt-6 p-6 md:hidden">
+          <Metadata metadata={recipe.metadata} />
+        </section>
+
+        <section className="mt-6 p-6">
           <h3 className="text-lg font-bold">Ingredients</h3>
 
-          <ul className="mt-6">
+          <ul className="mt-2 rounded-lg bg-stone-100 py-6 pl-6 dark:bg-stone-700">
             {recipe?.ingredients?.map((ingredient) => {
               return (
-                <li key={ingredient.name} className="mb-4 flex last:mb-0">
+                <li
+                  key={ingredient.name}
+                  className={
+                    'mb-4 flex border-b border-b-stone-300 pb-4 dark:border-b-stone-500' +
+                    ' ' +
+                    'last:mb-0 last:border-b-0 last:pb-0'
+                  }
+                >
                   <div className="relative flex items-center gap-2">
                     {ingredient.quantity ? (
                       <div className="">
@@ -59,23 +72,21 @@ export default function RecipePage({ params }: { params: { slug: string } }) {
           </ul>
         </section>
 
-        <section className="mt-6 border-t border-t-stone-200 px-6 py-6 dark:border-t-stone-700">
+        <section className="mt-6 p-6">
           <h3 className="text-lg font-bold">Steps</h3>
 
-          <ul className="mt-6 list-none">
+          <ul className="mt-2 rounded-lg bg-stone-100 py-6 pl-6 dark:bg-stone-700">
             {recipe?.steps?.map((step, i) => {
               return (
-                <li key={step.id} className="mb-4 flex last:mb-0 ">
-                  <div
-                    data-step={i + 1}
-                    className={
-                      'relative flex gap-4' +
-                      ' ' +
-                      'before:ml-[0.2rem] before:mt-0 before:flex before:h-[clamp(1.8rem,5vw,1.8rem)] before:shrink-0 before:grow-0 before:basis-[clamp(1.8rem,5vw,1.8rem)] before:content-center before:justify-center before:rounded-[50%] before:border before:border-stone-200 before:bg-stone-100 before:text-stone-500 before:content-[attr(data-step)] before:dark:border-stone-700 dark:before:bg-stone-800 dark:before:text-stone-300' +
-                      ' ' +
-                      'after:content=[""] after:absolute after:top-[35px] after:left-[0] after:bottom-[clamp(0.25rem,2vw,0rem)] after:z-[1] after:w-[1px] after:translate-x-[calc(clamp(2rem,5vw,2.2rem)/2)] after:transform after:bg-stone-200 dark:after:bg-stone-700'
-                    }
-                  >
+                <li
+                  key={step.id}
+                  className={
+                    'mb-4 flex border-b border-b-stone-300 pb-4 dark:border-b-stone-500' +
+                    ' ' +
+                    'last:mb-0 last:border-b-0 last:pb-0'
+                  }
+                >
+                  <div data-step={i + 1}>
                     <div className="w-full">
                       <h3 className="font-semibold">{step.name}</h3>
                       <p>{step.description}</p>
