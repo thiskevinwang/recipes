@@ -8,13 +8,16 @@ import { Combobox } from 'nextjs-components/src/components/combobox';
 import { Stack } from 'nextjs-components/src/components/Stack';
 
 import recipes from '@/data/recipes';
+import useClassNameOnScroll from '@/utils/use-class-name-on-scroll';
 
 export default function Page() {
+  const navRef = useClassNameOnScroll('border-b');
+
   return (
     <main>
       <nav
-        className="px-6 py-4"
-        style={{ boxShadow: `0 -1px 0 var(--accents-2) inset` }}
+        ref={navRef}
+        className="sticky top-0 z-10 border-b-stone-200 bg-stone-300 px-6 py-4 transition-colors dark:border-b-stone-700 dark:bg-stone-900"
       >
         <Stack gap={4}>
           <Combobox

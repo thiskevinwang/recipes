@@ -1,18 +1,13 @@
 'use client';
-import { useState, useEffect, useRef } from 'react';
+import { useSelectedLayoutSegments } from 'next/navigation';
+
 import { Stack } from 'nextjs-components/src/components/Stack';
 import { Switch } from 'nextjs-components/src/components/Switch';
 import { useTheme } from 'nextjs-components/src/contexts/ThemeContext';
 import { Monitor, Moon, Sun } from 'nextjs-components/src/icons';
-import { Text } from 'nextjs-components/src/components/Text';
 
-const useMounted = () => {
-  const [mounted, setMounted] = useState(false);
-  useEffect(() => {
-    setMounted(true);
-  }, []);
-  return mounted;
-};
+import useClassNameOnScroll from '@/utils/use-class-name-on-scroll';
+import useMounted from '@/utils/use-mounted';
 
 const SWITCH_ITEMS = [
   {
@@ -35,32 +30,14 @@ const SWITCH_ITEMS = [
 export default function Home({ children }: { children: React.ReactNode }) {
   const mounted = useMounted();
   const { setTheme, theme } = useTheme();
+  const segments = useSelectedLayoutSegments();
 
-  const logoRef = useRef<HTMLDivElement>(null);
-  const headerRef = useRef<HTMLDivElement>(null);
+  const rootPage = segments.length <= 1;
 
-  useEffect(() => {
-    if (typeof window === 'undefined') return;
-    const header = headerRef.current;
-    const logo = logoRef.current;
-    if (!header || !logo) return;
-
-    const handleScroll = () => {
-      const scrollY = window.scrollY;
-      if (scrollY > 10) {
-        logo.classList.remove('text-2xl');
-        header.classList.add('border-b');
-      } else {
-        logo.classList.add('text-2xl');
-        header.classList.remove('border-b');
-      }
-    };
-
-    window.addEventListener('scroll', handleScroll);
-    return () => {
-      window.removeEventListener('scroll', handleScroll);
-    };
-  }, []);
+  const logoRef = useClassNameOnScroll('text-2xl', { addOrRemove: 'remove' });
+  const headerRef = useClassNameOnScroll('border-b', {
+    enabled: rootPage,
+  });
 
   return (
     <>
