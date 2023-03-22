@@ -21,11 +21,13 @@ export default function Metadata({
 
         <div className="mb-4 border-b border-b-stone-300 pb-4 last:mb-0 last:border-b-0 last:pb-0 dark:border-b-stone-500">
           <p className="text-lg font-bold">Prep Time</p>
+          {/* @ts-expect-error className is a missing prop */}
           <Clock size={16} className="inline" /> {metadata?.prep_time}
         </div>
 
         <div className="mb-4 border-b border-b-stone-300 pb-4 last:mb-0 last:border-b-0 last:pb-0 dark:border-b-stone-500">
           <p className="text-lg font-bold">Cook Time</p>
+          {/* @ts-expect-error className is a missing prop */}
           <Clock size={16} className="inline" /> {metadata?.cook_time}
         </div>
 

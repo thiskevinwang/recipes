@@ -9,13 +9,17 @@ function fetchRecipe(slug: string) {
 
 export default function RecipePage({ params }: { params: { slug: string } }) {
   const recipe = fetchRecipe(params.slug);
+  if (!recipe) {
+    return <div className="w-full">Recipe not found</div>;
+  }
+
   return (
     <>
       <div className="w-full">
         <Breadcrumbs />
         <section className="px-6">
           <h1 className="text-2xl font-bold">{recipe.name}</h1>
-          <h2 className="text-lg text-stone-700 dark:text-stone-200">
+          <h2 className="text-lg text-stone-700 dark:text-stone-300">
             {recipe.description}
           </h2>
         </section>

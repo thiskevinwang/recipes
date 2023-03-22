@@ -1,14 +1,11 @@
 'use client';
 
-import { useState } from 'react';
+// @ts-expect-error no types
 import commandScore from 'command-score';
 import Link from 'next/link';
 
-import { Tabs } from 'nextjs-components/src/components/tabs';
-import { Checkbox } from 'nextjs-components/src/components/Checkbox';
 import { Combobox } from 'nextjs-components/src/components/combobox';
 import { Stack } from 'nextjs-components/src/components/Stack';
-import { Badge } from 'nextjs-components/src/components/Badge';
 
 import recipes from '@/data/recipes';
 
@@ -55,7 +52,7 @@ export default function Page() {
               href={`/recipes/${item.slug}`}
               key={item.id}
               tabIndex={0}
-              className="max-h-[150px] min-h-[150px] rounded-lg bg-stone-50 p-4 transition-colors active:bg-stone-200 dark:bg-stone-700"
+              className="max-h-[150px] min-h-[150px] rounded-lg bg-stone-50 p-4 transition-colors active:bg-stone-200 dark:bg-stone-700 dark:active:bg-stone-800"
             >
               <h3 className="text-lg font-medium">{item.name}</h3>
               <p className="text-sm text-stone-700 dark:text-stone-300">

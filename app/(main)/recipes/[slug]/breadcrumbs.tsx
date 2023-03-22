@@ -18,6 +18,7 @@ export default function Breadcrumbs() {
               className="decoration-dashed underline-offset-4 hover:underline"
             >
               <li className="flex flex-row items-center">
+                {/* @ts-expect-error className is a missing prop */}
                 <ChevronRight size={16} className="mx-1" />
                 {segment}
               </li>
