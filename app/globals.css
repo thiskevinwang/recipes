@@ -26,3 +26,8 @@
   --accents-8: rgb(245 245 244);
   --geist-foreground: rgb(250 250 249);
 }
+
+.geist-text,
+*::placeholder {
+  font-family: var(--font-mono);
+}
