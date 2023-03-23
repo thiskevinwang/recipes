@@ -9,7 +9,7 @@ export default function Breadcrumbs() {
   const segments = pathname.split('/').filter(Boolean);
   return (
     <nav className="mx-6 py-6">
-      <ul className="flex list-none text-xs">
+      <ul className="flex list-none">
         {segments.map((segment, i, arr) => {
           return (
             <Link

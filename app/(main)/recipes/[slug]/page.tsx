@@ -37,9 +37,7 @@ export default function RecipePage({ params }: { params: { slug: string } }) {
                 <li
                   key={ingredient.name}
                   className={
-                    'mb-4 flex border-b border-b-stone-300 pb-4 dark:border-b-stone-500' +
-                    ' ' +
-                    'last:mb-0 last:border-b-0 last:pb-0'
+                    'mb-4 flex border-b border-b-stone-300 pb-4 pr-4 last:mb-0 last:border-b-0 last:pb-0 dark:border-b-stone-500'
                   }
                 >
                   <div className="relative flex items-center gap-2">
@@ -85,9 +83,7 @@ export default function RecipePage({ params }: { params: { slug: string } }) {
                 <li
                   key={step.id}
                   className={
-                    'mb-4 flex border-b border-b-stone-300 pb-4 dark:border-b-stone-500' +
-                    ' ' +
-                    'last:mb-0 last:border-b-0 last:pb-0'
+                    'mb-4 flex border-b border-b-stone-300 pb-4 pr-4 last:mb-0 last:border-b-0 last:pb-0 dark:border-b-stone-500'
                   }
                 >
                   <div data-step={i + 1}>

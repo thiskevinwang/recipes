@@ -19,8 +19,9 @@ export default function Page() {
         ref={navRef}
         className="sticky top-0 z-10 border-b-stone-200 bg-stone-300 px-6 py-4 transition-colors dark:border-b-stone-700 dark:bg-stone-900"
       >
-        <Stack gap={4}>
+        <Stack gap={4} direction={'row'}>
           <Combobox
+            width={'100%'}
             placeholder="Search..."
             filter={(list, input) => {
               const items = list.filter((item) => {
@@ -44,7 +45,6 @@ export default function Page() {
               })}
             </Combobox.List>
           </Combobox>
-          {/* <Checkbox /> */}
         </Stack>
       </nav>
 
